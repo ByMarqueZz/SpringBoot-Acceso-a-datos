@@ -5,11 +5,12 @@
              version="3.0">
   <persistence-unit name="default">
 
-      <class>org.example.springbootAccesoADatos.modelo.entidades.EntidadDepartamento</class>
-      <class>org.example.springbootAccesoADatos.modelo.entidades.EntidadEmpleado</class>
-      <class>org.example.springbootAccesoADatos.modelo.entidades.EntidadSede</class>
+      <class>org.example.springbootAccesoADatos.modelo.entidades.EntidadCategoria</class>
+      <class>org.example.springbootAccesoADatos.modelo.entidades.EntidadLibro</class>
+      <class>org.example.springbootAccesoADatos.modelo.entidades.EntidadPrestamo</class>
+      <class>org.example.springbootAccesoADatos.modelo.entidades.EntidadUsuario</class>
       <properties>
-          <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/proyecto_orm"/>
+          <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/BIBLIOTECA"/>
           <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
           <property name="hibernate.connection.username" value="root"/>
           <property name="hibernate.connection.password" value="root"/>

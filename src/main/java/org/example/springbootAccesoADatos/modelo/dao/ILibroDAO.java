@@ -4,5 +4,5 @@ import org.example.springbootAccesoADatos.modelo.entidades.EntidadLibro;
 import org.springframework.data.repository.CrudRepository;
 
 public interface ILibroDAO extends CrudRepository<EntidadLibro, Integer> {
-    EntidadLibro findByLibroIgnoreCase(String nombre);
+    EntidadLibro findByNombreIgnoreCase(String nombre);
 }

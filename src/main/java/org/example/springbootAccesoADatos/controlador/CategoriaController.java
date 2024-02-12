@@ -1,4 +1,4 @@
-package org.example.springbootAccesoADatos.controladores;
+package org.example.springbootAccesoADatos.controlador;
 
 import org.example.springbootAccesoADatos.modelo.dao.ICategoriaDAO;
 import org.example.springbootAccesoADatos.modelo.entidades.EntidadCategoria;

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IUsuarioDAO extends CrudRepository<EntidadUsuario, String> {
-    EntidadUsuario findByUsuarioIgnoreCase(String usuario);
+    EntidadUsuario findById(int usuario);
 }
