@@ -1,7 +1,6 @@
 package org.example.springbootAccesoADatos.controlador;
 
 import org.example.springbootAccesoADatos.modelo.dao.IUsuarioDAO;
-import org.example.springbootAccesoADatos.modelo.dto.UsuarioDTO;
 import org.example.springbootAccesoADatos.modelo.entidades.EntidadUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api-biblioteca/usuario")
-public class ControllerUsuario {
+public class ControladorUsuario {
 
     @Autowired
     private IUsuarioDAO usuarioDAO;
@@ -23,7 +22,7 @@ public class ControllerUsuario {
     }
 
     @GetMapping("/{id}") //endpoint para buscar un usuario por id
-    public ResponseEntity<EntidadUsuario> buscarUsuarioPorId(@PathVariable(value = "id") String id) {
+    public ResponseEntity<EntidadUsuario> buscarUsuarioPorId(@PathVariable(value = "id") int id) {
         Optional<EntidadUsuario> usuario = usuarioDAO.findById(id);
         if (usuario.isPresent())
             return ResponseEntity.ok().body(usuario.get());// HTTP 200 OK
@@ -34,7 +33,7 @@ public class ControllerUsuario {
         return usuarioDAO.save(usuario);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> borrarUsuario(@PathVariable(value = "id") String id) {
+    public ResponseEntity<?> borrarUsuario(@PathVariable(value = "id") int id) {
         Optional<EntidadUsuario> usuario = usuarioDAO.findById(id);
         if (usuario.isPresent()) {
             usuarioDAO.deleteById(id);
@@ -45,7 +44,7 @@ public class ControllerUsuario {
     }
     // Tipo de solicitud HTTP --> PUT
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizarUsuario(@RequestBody EntidadUsuario nuevoUsuario, @PathVariable(value = "id") String id) {
+    public ResponseEntity<?> actualizarUsuario(@RequestBody EntidadUsuario nuevoUsuario, @PathVariable(value = "id") int id) {
         Optional<EntidadUsuario> usuario = usuarioDAO.findById(id);
         if (usuario.isPresent()) {
             usuario.get().setNombre(nuevoUsuario.getNombre());

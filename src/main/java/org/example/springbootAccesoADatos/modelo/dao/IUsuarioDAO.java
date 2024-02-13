@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface IUsuarioDAO extends CrudRepository<EntidadUsuario, String> {
-    EntidadUsuario findById(int usuario);
+public interface IUsuarioDAO extends CrudRepository<EntidadUsuario, Integer> {
+    //EntidadUsuario findById(int id);
 }

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "Historico", schema = "BIBLIOTECA", catalog = "")
+@Table(name = "historico", schema = "BIBLIOTECA", catalog = "")
 public class EntidadHistorico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

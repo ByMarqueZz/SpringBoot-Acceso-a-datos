@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController("ControladorLibro")
-@RequestMapping()
+@RestController
+@RequestMapping("/api-biblioteca/libro")
 public class ControladorLibro {
     @Autowired
     ILibroDAO libroDAO;

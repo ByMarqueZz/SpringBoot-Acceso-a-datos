@@ -1,11 +1,12 @@
 package org.example.springbootAccesoADatos.modelo.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Collection;
 
 @Entity
-@Table(name = "Libro", schema = "BIBLIOTECA", catalog = "")
+@Table(name = "libro", schema = "BIBLIOTECA", catalog = "")
 public class EntidadLibro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -24,6 +25,7 @@ public class EntidadLibro {
     @JoinColumn(name = "categoria", referencedColumnName = "id")
     private EntidadCategoria categoria;
     @OneToMany(mappedBy = "libro")
+    @JsonIgnoreProperties("listPrestamos")
     private Collection<EntidadPrestamo> listPrestamos;
 
     public int getId() {

@@ -1,5 +1,6 @@
 package org.example.springbootAccesoADatos.modelo.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -18,6 +19,7 @@ public class EntidadUsuario {
     @Column(name = "apellidos", nullable = true, length = -1)
     private String apellidos;
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnoreProperties("listPrestamos")
     private Collection<EntidadPrestamo> listPrestamos;
 
     public int getId() {

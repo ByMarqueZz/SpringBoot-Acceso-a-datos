@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api-biblioteca/categoria")
-public class CategoriaController {
+public class ControladorCategoria {
     @Autowired
     private ICategoriaDAO categoriaDAO;
 
@@ -20,7 +20,7 @@ public class CategoriaController {
     }
 
     @GetMapping("/{id}")
-    public EntidadCategoria obtenerCategoriaPorId(@PathVariable(value = "id")String id) {
+    public EntidadCategoria obtenerCategoriaPorId(@PathVariable(value = "id")int id) {
         return categoriaDAO.findById(id).get();
     }
 
@@ -30,14 +30,14 @@ public class CategoriaController {
     }
 
     @PatchMapping("/{id}")
-    public EntidadCategoria actualizarCategoria(@PathVariable(value = "id")String id, @Validated @RequestBody EntidadCategoria categoria) {
+    public EntidadCategoria actualizarCategoria(@PathVariable(value = "id")int id, @Validated @RequestBody EntidadCategoria categoria) {
         EntidadCategoria categoriaEnBD = categoriaDAO.findById(id).get();
         categoriaEnBD.setCategoria(categoria.getCategoria());
         return categoriaDAO.save(categoriaEnBD);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarCategoria(@PathVariable(value = "id")String id) {
+    public void eliminarCategoria(@PathVariable(value = "id")int id) {
         categoriaDAO.deleteById(id);
     }
 

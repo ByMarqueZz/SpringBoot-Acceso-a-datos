@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api-biblioteca/prestamo")
-public class ControllerPrestamo {
+public class ControladorPrestamo {
 
     @Autowired
     private IPrestamoDAO prestamoDAO;
