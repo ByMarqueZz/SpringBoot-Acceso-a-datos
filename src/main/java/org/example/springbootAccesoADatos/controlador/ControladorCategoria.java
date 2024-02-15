@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +45,8 @@ public class ControladorCategoria {
         categoriaEnBD.setCategoria(categoria.getCategoria());
         return categoriaDAO.save(categoriaEnBD);
     }*/
-    @PutMapping("/{id}")
+    @CrossOrigin("http://localhost:5173")
+    @PatchMapping("/{id}")
     public ResponseEntity<?> actualizarCategoria(@RequestBody EntidadCategoria nuevaCategoria, @PathVariable(value = "id") int id) {
         Optional<EntidadCategoria> categoria = categoriaDAO.findById(id);
         if (categoria.isPresent()) {

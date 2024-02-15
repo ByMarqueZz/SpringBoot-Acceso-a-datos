@@ -11,7 +11,7 @@ public class EntidadPrestamo {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "idprestamo", nullable = false)
+    @Column(name = "id", nullable = false)
     private int id;
     @Basic
     @Column(name = "fechaprestamo", nullable = true)
@@ -24,6 +24,14 @@ public class EntidadPrestamo {
     @JoinColumn(name = "idusuario", referencedColumnName = "id")
     @JsonIgnoreProperties("listPrestamos")
     private EntidadUsuario usuario;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public Timestamp getFechaPrestamo() {
         return fechaPrestamo;
