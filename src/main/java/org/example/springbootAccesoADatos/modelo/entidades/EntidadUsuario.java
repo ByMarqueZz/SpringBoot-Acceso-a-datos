@@ -19,7 +19,7 @@ public class EntidadUsuario {
     @Column(name = "apellidos", nullable = true, length = -1)
     private String apellidos;
     @OneToMany(mappedBy = "usuario")
-    @JsonIgnoreProperties("listPrestamos")
+    @JsonIgnoreProperties
     private Collection<EntidadPrestamo> listPrestamos;
 
     public int getId() {

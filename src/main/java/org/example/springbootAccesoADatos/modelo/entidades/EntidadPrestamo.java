@@ -1,5 +1,6 @@
 package org.example.springbootAccesoADatos.modelo.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -17,9 +18,11 @@ public class EntidadPrestamo {
     private Timestamp fechaPrestamo;
     @ManyToOne
     @JoinColumn(name = "idLibro", referencedColumnName = "id")
+    @JsonIgnoreProperties("listPrestamos")
     private EntidadLibro libro;
     @ManyToOne
     @JoinColumn(name = "idUsuario", referencedColumnName = "id")
+    @JsonIgnoreProperties("listPrestamos")
     private EntidadUsuario usuario;
 
     public Timestamp getFechaPrestamo() {

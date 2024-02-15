@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
     public interface IPrestamoDAO extends CrudRepository<EntidadPrestamo, Integer> {
-        Optional<EntidadPrestamo> findById(int id);
+        //Optional<EntidadPrestamo> findById(int id);
     }

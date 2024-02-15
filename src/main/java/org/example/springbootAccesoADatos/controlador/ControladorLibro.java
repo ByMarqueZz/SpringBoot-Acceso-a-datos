@@ -34,18 +34,36 @@ public class ControladorLibro {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> borrarDepartamento (@PathVariable(value = "id") int id) {
-        Optional<EntidadLibro> departamento = libroDAO.findById(id);
-        if(departamento.isPresent()) {
+    public ResponseEntity<?> borrarLibro (@PathVariable(value = "id") int id) {
+        Optional<EntidadLibro> libro = libroDAO.findById(id);
+        if(libro.isPresent()) {
             libroDAO.deleteById(id);
             return ResponseEntity.ok().body("Borrado");
         } else {
             return ResponseEntity.notFound().build();
         }
     }
-
+/*
     @PatchMapping("/{id}")
     public ResponseEntity<?> actualizarDepartamento(@RequestBody @Validated EntidadLibro nuevoLibro,
+                                                    @PathVariable(value = "id") int id) {
+        Optional<EntidadLibro> libro = libroDAO.findById(id);
+        if (libro.isPresent()) {
+            libro.get().setNombre(nuevoLibro.getNombre());
+            libro.get().setAutor(nuevoLibro.getAutor());
+            libro.get().setEditorial(nuevoLibro.getEditorial());
+            libro.get().setCategoria(nuevoLibro.getCategoria());
+            libro.get().setListPrestamos(nuevoLibro.getListPrestamos());
+            libroDAO.save(libro.get());
+            return ResponseEntity.ok().body("Actualizado");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+ */
+    @PutMapping("/{id}")
+    public ResponseEntity<?> actualizarLibro(@RequestBody @Validated EntidadLibro nuevoLibro,
                                                     @PathVariable(value = "id") int id) {
         Optional<EntidadLibro> libro = libroDAO.findById(id);
         if (libro.isPresent()) {

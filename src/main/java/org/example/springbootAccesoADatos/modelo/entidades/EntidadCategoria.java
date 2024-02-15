@@ -16,7 +16,7 @@ public class EntidadCategoria {
     @Column(name = "categoria", nullable = true, length = -1)
     private String categoria;
     @OneToMany(mappedBy = "categoria")
-    @JsonIgnoreProperties("listLibros")
+    @JsonIgnoreProperties("categoria")
     private Collection<EntidadLibro> listLibros;
 
     public int getId() {
