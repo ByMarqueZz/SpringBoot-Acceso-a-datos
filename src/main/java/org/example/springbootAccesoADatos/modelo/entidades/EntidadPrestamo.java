@@ -11,17 +11,17 @@ public class EntidadPrestamo {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "idprestamo", nullable = false)
     private int id;
     @Basic
-    @Column(name = "fechaPrestamo", nullable = true)
+    @Column(name = "fechaprestamo", nullable = true)
     private Timestamp fechaPrestamo;
     @ManyToOne
-    @JoinColumn(name = "idLibro", referencedColumnName = "id")
+    @JoinColumn(name = "idlibro", referencedColumnName = "id")
     @JsonIgnoreProperties("listPrestamos")
     private EntidadLibro libro;
     @ManyToOne
-    @JoinColumn(name = "idUsuario", referencedColumnName = "id")
+    @JoinColumn(name = "idusuario", referencedColumnName = "id")
     @JsonIgnoreProperties("listPrestamos")
     private EntidadUsuario usuario;
 

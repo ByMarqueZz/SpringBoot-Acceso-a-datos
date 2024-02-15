@@ -25,6 +25,7 @@ public class EntidadLibro {
     @JoinColumn(name = "categoria", referencedColumnName = "id")
     private EntidadCategoria categoria;
     @OneToMany(mappedBy = "libro")
+    @JsonIgnoreProperties("libro")
     private Collection<EntidadPrestamo> listPrestamos;
 
     public int getId() {

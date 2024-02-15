@@ -28,7 +28,7 @@ public class ControladorUsuario {
             return ResponseEntity.ok().body(usuario.get());// HTTP 200 OK
         else return ResponseEntity.notFound().build();      // HTTP 404
     }
-    @PostMapping("/{id}")
+    @PostMapping()
     public EntidadUsuario guardarUsuario(@RequestBody EntidadUsuario usuario){
         return usuarioDAO.save(usuario);
     }
