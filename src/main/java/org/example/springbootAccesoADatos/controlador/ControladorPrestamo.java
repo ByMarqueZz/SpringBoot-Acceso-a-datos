@@ -31,46 +31,11 @@ public class ControladorPrestamo {
         else return ResponseEntity.notFound().build();// HTTP 404
     }
 
-    /*
-    @GetMapping("/dto/{id}")
-    public ResponseEntity<EntidadPrestamo> buscarPrestamoDTOPorId(@PathVariable(value = "id") int idPrestamo) {
-        Optional<EntidadPrestamo> prestamo = prestamoDAO.findById(idPrestamo);
-        if (prestamo.isPresent())
-            return ResponseEntity.ok().body(prestamo.get());// HTTP 200 OK
-        else return ResponseEntity.notFound().build();      // HTTP 404
-    }
-
-     */
-
     @PostMapping
     public EntidadPrestamo guardarPrestamo(@Validated @RequestBody EntidadPrestamo prestamo) {
         return prestamoDAO.save(prestamo);
     }
 
-    /*
-    //Usamos Patch para no pasar el objeto completo , solo los campos que queremos actualizar
-    @PatchMapping ("/{id}")
-    public ResponseEntity<EntidadPrestamo> actualizarPrestamo(@Validated @PathVariable(value = "id") int idPrestamo, @RequestBody EntidadPrestamo prestamo) {
-        Optional<EntidadPrestamo> prestamoEncontrado = prestamoDAO.findById(idPrestamo);
-        if (prestamoEncontrado.isPresent()) {
-            EntidadPrestamo prest = prestamoEncontrado.get();
-            if (prestamo.getLibro() != null) {
-                prest.setLibro(prestamo.getLibro());
-            }
-            if (prestamo.getFechaPrestamo() != null) {
-                prest.setFechaPrestamo(prestamo.getFechaPrestamo());
-            }
-            if(prestamo.getUsuario() != null){
-                prest.setUsuario(prestamo.getUsuario());
-            }
-            prestamoDAO.save(prest);
-            return ResponseEntity.ok().body(prest);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-     */
     @PutMapping ("/{id}")
     public ResponseEntity<?> actualizarPrestamo(@RequestBody @Validated EntidadPrestamo nuevoPrestamo,
                                                 @PathVariable(value = "id") int id) {

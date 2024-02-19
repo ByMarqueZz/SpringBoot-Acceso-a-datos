@@ -22,10 +22,6 @@ public class ControladorCategoria {
         return (List<EntidadCategoria>) categoriaDAO.findAll();
     }
 
-    /*@GetMapping("/{id}")
-    public EntidadCategoria buscarCategoriaPorId(@PathVariable(value = "id")String idCategoria) {
-        return categoriaDAO.findById(idCategoria).get();
-    }*/
     @GetMapping("/{id}") //endpoint para buscar un categoria por id
     public ResponseEntity<EntidadCategoria> buscarCategoriaPorId(@PathVariable(value = "id") int id) {
         Optional<EntidadCategoria> categoria = categoriaDAO.findById(id);
@@ -38,15 +34,7 @@ public class ControladorCategoria {
     public EntidadCategoria guardarCategoria(@Validated @RequestBody EntidadCategoria categoria) {
         return categoriaDAO.save(categoria);
     }
-
-    /*@PatchMapping("/{id}")
-    public EntidadCategoria actualizarCategoria(@PathVariable(value = "id")String id, @Validated @RequestBody EntidadCategoria categoria) {
-        EntidadCategoria categoriaEnBD = categoriaDAO.findById(id).get();
-        categoriaEnBD.setCategoria(categoria.getCategoria());
-        return categoriaDAO.save(categoriaEnBD);
-    }*/
-    @CrossOrigin("http://localhost:5173")
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> actualizarCategoria(@RequestBody EntidadCategoria nuevaCategoria, @PathVariable(value = "id") int id) {
         Optional<EntidadCategoria> categoria = categoriaDAO.findById(id);
         if (categoria.isPresent()) {
@@ -57,11 +45,6 @@ public class ControladorCategoria {
             return ResponseEntity.notFound().build();
         }
     }
-
-    /*@DeleteMapping("/{id}")
-    public void eliminarCategoria(@PathVariable(value = "id")String id) {
-        categoriaDAO.deleteById(id);
-    }*/
     @DeleteMapping("/{id}")
     public ResponseEntity<?> borrarCategoria(@PathVariable(value = "id") int id) {
         Optional<EntidadCategoria> categoria = categoriaDAO.findById(id);
