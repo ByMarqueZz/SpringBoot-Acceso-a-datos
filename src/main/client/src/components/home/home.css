@@ -1,0 +1,89 @@
+.childHome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.attributeHome {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+table {
+    width: 100%;
+    border: 1px solid black;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: .5rem;
+}
+
+.icons {
+    width: 30px;
+    cursor: pointer;
+}
+
+.clickableRoute {
+    cursor: pointer;
+    color: blue;
+}
+
+.header {
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#selectTable {
+    height: 56px;
+    width: 120px;
+    text-align: center;
+}
+
+.imgReload {
+    width: 30px;
+    cursor: pointer;
+}
+
+.spanTableName {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.spanTableNameDiv {
+    padding-bottom: .7rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.imgAdd {
+    width: 30px;
+    cursor: pointer;
+}
+
+.spansito {
+    color: blue;
+    cursor: pointer;
+}
+
+.btnsito {
+    height: 56px;
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+    transition: .3s all ease-in-out;
+}
+
+.btnsito:hover {
+    border-color: rgb(69, 69, 69);
+    background-color: rgb(150, 148, 148);
+}
